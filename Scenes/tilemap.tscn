@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0l53uh85tbgq"]
+
+[ext_resource type="PackedScene" uid="uid://bciugl0lyb7fh" path="res://Scenes/movement.tscn" id="1_lpfw8"]
+[ext_resource type="PackedScene" uid="uid://hublybgr6hy1" path="res://Scenes/lever.tscn" id="2_pr4vk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_lpfw8")]
+
+[node name="Lever" parent="." instance=ExtResource("2_pr4vk")]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxoffou7ui4u3"]
+
+[ext_resource type="Script" path="res://Scenes/pressure_plate.gd" id="1_5gcot"]
+[ext_resource type="Texture2D" uid="uid://gribst38bw0j" path="res://Тейпи/6 Traps/1.png" id="1_5hgdv"]
+
+[sub_resource type="Animation" id="Animation_0cihr"]
+resource_name = "Disable"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g0r0h"]
+resource_name = "Enable"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_3hpyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wn3i"]
+_data = {
+"Disable": SubResource("Animation_0cihr"),
+"Enable": SubResource("Animation_g0r0h"),
+"RESET": SubResource("Animation_3hpyn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpvko"]
+
+[node name="PressurePlate" type="StaticBody2D"]
+position = Vector2(0, 8)
+scale = Vector2(1, 0.525)
+script = ExtResource("1_5gcot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_5hgdv")
+hframes = 7
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0wn3i")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_cpvko")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -7)
+polygon = PackedVector2Array(-16, 7, -9, -2.52381, 9, -2.52381, 16, 7)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

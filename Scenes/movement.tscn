@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bciugl0lyb7fh"]
+
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/character_body_2d.tscn" id="2_4w0cu"]
+[ext_resource type="Script" path="res://Scenes/door.gd" id="2_ay0b4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq7bh"]
+size = Vector2(1340, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6b5u"]
+size = Vector2(10, 82)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(586, 320)
+shape = SubResource("RectangleShape2D_hq7bh")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -88.0
+offset_top = 304.0
+offset_right = 1256.0
+offset_bottom = 336.0
+color = Color(0, 0.51753, 0.51753, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(515, 264)
+shape = SubResource("RectangleShape2D_j6b5u")
+script = ExtResource("2_ay0b4")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = 512.0
+offset_top = 224.0
+offset_right = 520.0
+offset_bottom = 304.0
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_4w0cu")]

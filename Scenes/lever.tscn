@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://hublybgr6hy1"]
+
+[ext_resource type="Script" path="res://Scripts/Lever.gd" id="1_re64p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsr8"]
+size = Vector2(56, 40)
+
+[node name="Lever" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_re64p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 24.0
+color = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(4, 8)
+shape = SubResource("RectangleShape2D_3fsr8")
