@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1flwt5nocdb1"]
+
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/character_body_2d.tscn" id="1_1o5xw"]
+[ext_resource type="Script" path="res://vent.gd" id="2_q2530"]
+[ext_resource type="PackedScene" uid="uid://dd0v2n7usjuh4" path="res://Scenes/box.tscn" id="3_uwmjm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l756k"]
+size = Vector2(597.041, 26.1499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7fhc"]
+size = Vector2(176.398, 110.241)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(1.76872, 1.83557)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_1o5xw")]
+
+[node name="vent" type="StaticBody2D" parent="."]
+collision_mask = 0
+script = ExtResource("2_q2530")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vent"]
+position = Vector2(-9.04608, 117.674)
+shape = SubResource("RectangleShape2D_l756k")
+
+[node name="Area2D" type="Area2D" parent="vent"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vent/Area2D"]
+position = Vector2(2.26153, 45.1206)
+shape = SubResource("RectangleShape2D_o7fhc")
+
+[node name="ColorRect" type="ColorRect" parent="vent"]
+offset_left = 290.0
+offset_top = 105.0
+offset_right = 355.0
+offset_bottom = 112.0
+scale = Vector2(-9.23772, 3.17514)
+
+[node name="Box" parent="." instance=ExtResource("3_uwmjm")]
+position = Vector2(0.565369, -122.033)
+
+[connection signal="body_entered" from="vent/Area2D" to="vent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="vent/Area2D" to="vent" method="_on_area_2d_body_exited"]

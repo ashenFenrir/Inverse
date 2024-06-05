@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://u1c50wukhnt5"]
 
-[ext_resource type="Script" path="res://Scenes/Box.gd" id="2_vdtps"]
 [ext_resource type="TileSet" uid="uid://cb1xi01vkpfo" path="res://Scenes/TileSet.tres" id="4_phupk"]
 [ext_resource type="Texture2D" uid="uid://cer8256v37tw2" path="res://Тейпи/3 Objects/Boxes/2_Idle.png" id="4_vatvm"]
 [ext_resource type="PackedScene" uid="uid://hublybgr6hy1" path="res://Scenes/lever.tscn" id="5_qvjfc"]
@@ -10,16 +9,24 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_au6f7"]
 
+[sub_resource type="GDScript" id="GDScript_wb8et"]
+script/source = "extends RigidBody2D
+
+func _process(delta):
+	var r: RigidBody2D
+	
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ixo"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Box" type="RigidBody2D" parent="."]
 position = Vector2(723, 284)
 collision_layer = 2
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_au6f7")
-script = ExtResource("2_vdtps")
+script = SubResource("GDScript_wb8et")
 
 [node name="Sprite2D" type="Sprite2D" parent="Box"]
 texture = ExtResource("4_vatvm")
