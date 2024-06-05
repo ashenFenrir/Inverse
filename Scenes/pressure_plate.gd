@@ -18,4 +18,4 @@ func _on_area_2d_body_exited(body):
 		state = false
 		animation_player.play("Disable")
 		print("Pressure plate was unpushed")
-		affect.disenable()
+		affect.disable()
