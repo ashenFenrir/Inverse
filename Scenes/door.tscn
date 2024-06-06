@@ -1,20 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnpsegemtqomh"]
+[gd_scene load_steps=6 format=3 uid="uid://cnpsegemtqomh"]
 
 [ext_resource type="Script" path="res://Scenes/door.gd" id="1_ywd7q"]
 
+[sub_resource type="Animation" id="Animation_kvhgl"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, -49), Vector2(6, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -90), Vector2(0, -40)]
+}
+
+[sub_resource type="Animation" id="Animation_pntdf"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 1), Vector2(6, -49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, -90)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jb1ru"]
+_data = {
+"close": SubResource("Animation_kvhgl"),
+"open": SubResource("Animation_pntdf")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6b5u"]
-size = Vector2(10, 82)
+size = Vector2(12, 82)
 
 [node name="Door" type="StaticBody2D"]
+position = Vector2(0, 2)
 script = ExtResource("1_ywd7q")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jb1ru")
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(515, 224)
+position = Vector2(6, 1)
 shape = SubResource("RectangleShape2D_j6b5u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 512.0
-offset_top = 184.0
-offset_right = 528.0
-offset_bottom = 264.0
+offset_top = -40.0
+offset_right = 13.0
+offset_bottom = 42.0
 color = Color(0, 0, 0, 1)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxoffou7ui4u3"]
 
 [ext_resource type="Script" path="res://Scenes/pressure_plate.gd" id="1_5gcot"]
-[ext_resource type="Texture2D" uid="uid://gribst38bw0j" path="res://Тейпи/6 Traps/1.png" id="1_5hgdv"]
+[ext_resource type="Texture2D" uid="uid://b81x7358hrkyr" path="res://Тейпи/6 Traps/1.png" id="1_5hgdv"]
 
 [sub_resource type="Animation" id="Animation_0cihr"]
 resource_name = "Disable"

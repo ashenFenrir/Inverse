@@ -11,13 +11,13 @@ func disable():
 func _ready():
 	pass # Replace with function body.
 
-@export var force: float = 0.5
+@export var force: float = 1000
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	for i in fliyng_objects:
-		i.apply_force(Vector2(force, force), Vector2.UP)
-
+		i.apply_impulse(Vector2(0, -force)*delta, Vector2.ONE)
+		
 
 func _on_area_2d_body_entered(body):
 	fliyng_objects.append(body)

@@ -58,8 +58,7 @@ position = Vector2(84, -79)
 affect = NodePath("../../Door")
 
 [node name="Door" parent="." instance=ExtResource("6_55y7e")]
-position = Vector2(104, 72)
+position = Vector2(616, 336)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("6_b6ajv")]
 position = Vector2(547, 299)
-scale = Vector2(0.25, 0.25)

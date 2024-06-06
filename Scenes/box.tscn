@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cer8256v37tw2" path="res://Тейпи/3 Objects/Boxes/2_Idle.png" id="2_7t5da"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_au6f7"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mjkbv"]
+friction = 20.0
 
 [sub_resource type="GDScript" id="GDScript_wb8et"]
 script/source = "extends RigidBody2D
@@ -18,7 +19,8 @@ func _process(delta):
 position = Vector2(723, 284)
 collision_layer = 2
 collision_mask = 7
-physics_material_override = SubResource("PhysicsMaterial_au6f7")
+physics_material_override = SubResource("PhysicsMaterial_mjkbv")
+lock_rotation = true
 script = SubResource("GDScript_wb8et")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

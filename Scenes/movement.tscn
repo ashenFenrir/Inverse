@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bciugl0lyb7fh"]
+[gd_scene load_steps=6 format=3 uid="uid://bciugl0lyb7fh"]
 
 [ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/character_body_2d.tscn" id="2_4w0cu"]
-[ext_resource type="Script" path="res://Scenes/door.gd" id="2_ay0b4"]
+[ext_resource type="Script" path="res://Scenes/next level.gd" id="3_n2gsy"]
+[ext_resource type="PackedScene" uid="uid://cnpsegemtqomh" path="res://Scenes/door.tscn" id="3_xwq77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hq7bh"]
 size = Vector2(1340, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6b5u"]
-size = Vector2(10, 82)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbcwx"]
+size = Vector2(74, 102)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -24,18 +25,18 @@ offset_right = 1256.0
 offset_bottom = 336.0
 color = Color(0, 0.51753, 0.51753, 1)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(515, 264)
-shape = SubResource("RectangleShape2D_j6b5u")
-script = ExtResource("2_ay0b4")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 512.0
-offset_top = 224.0
-offset_right = 520.0
-offset_bottom = 304.0
-color = Color(0, 0, 0, 1)
-
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_4w0cu")]
+
+[node name="next level" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_n2gsy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="next level"]
+position = Vector2(592, 248)
+shape = SubResource("RectangleShape2D_sbcwx")
+
+[node name="Door" parent="." instance=ExtResource("3_xwq77")]
+position = Vector2(464, 264)
+
+[connection signal="body_entered" from="next level" to="next level" method="_on_body_entered"]
