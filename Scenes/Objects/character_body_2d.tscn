@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dotxdfc5w77os"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_btbd4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm08g"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbykm"]
+size = Vector2(123, 40)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_btbd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_wm08g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = 8.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-20, -32)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -12)
+shape = SubResource("RectangleShape2D_hbykm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

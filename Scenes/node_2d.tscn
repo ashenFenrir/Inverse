@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://u1c50wukhnt5"]
 
-[ext_resource type="TileSet" uid="uid://cb1xi01vkpfo" path="res://Scenes/TileSet.tres" id="4_phupk"]
-[ext_resource type="Texture2D" uid="uid://cer8256v37tw2" path="res://Тейпи/3 Objects/Boxes/2_Idle.png" id="4_vatvm"]
-[ext_resource type="PackedScene" uid="uid://hublybgr6hy1" path="res://Scenes/lever.tscn" id="5_qvjfc"]
-[ext_resource type="PackedScene" uid="uid://cnpsegemtqomh" path="res://Scenes/door.tscn" id="6_55y7e"]
-[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/character_body_2d.tscn" id="6_b6ajv"]
-[ext_resource type="PackedScene" uid="uid://bxoffou7ui4u3" path="res://Scenes/pressure_plate.tscn" id="6_qx6vm"]
+[ext_resource type="TileSet" path="res://Тейпи/TileSet.tres" id="4_phupk"]
+[ext_resource type="Texture2D" path="res://Тейпи/3 Objects/Boxes/2_Idle.png" id="4_vatvm"]
+[ext_resource type="PackedScene" uid="uid://hublybgr6hy1" path="res://Scenes/Objects/lever.tscn" id="5_qvjfc"]
+[ext_resource type="PackedScene" uid="uid://cnpsegemtqomh" path="res://Scenes/Objects/door.tscn" id="6_55y7e"]
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/Objects/character_body_2d.tscn" id="6_b6ajv"]
+[ext_resource type="PackedScene" uid="uid://bxoffou7ui4u3" path="res://Scenes/Objects/pressure_plate.tscn" id="6_qx6vm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_au6f7"]
 

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://2ahpjsjavbbw"]
+
+[ext_resource type="PackedScene" uid="uid://bxoffou7ui4u3" path="res://Scenes/Objects/pressure_plate.tscn" id="1_eun7w"]
+[ext_resource type="Script" path="res://Scripts/teleport.gd" id="2_ojoyf"]
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/Objects/character_body_2d.tscn" id="3_w27ay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf641"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeqxi"]
+size = Vector2(605, 58)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="portal" parent="." node_paths=PackedStringArray("second_portal") instance=ExtResource("1_eun7w")]
+position = Vector2(0, 3)
+script = ExtResource("2_ojoyf")
+second_portal = NodePath("../portal2")
+
+[node name="Area2D2" type="Area2D" parent="portal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal/Area2D2"]
+shape = SubResource("RectangleShape2D_xf641")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-72, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(297.5, 56)
+shape = SubResource("RectangleShape2D_oeqxi")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -305.0
+offset_top = -32.0
+offset_right = 368.0
+offset_bottom = 24.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_w27ay")]
+position = Vector2(72, -32)
+
+[node name="portal2" parent="." instance=ExtResource("1_eun7w")]
+position = Vector2(408, 3)
+script = ExtResource("2_ojoyf")
+
+[node name="Area2D2" type="Area2D" parent="portal2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal2/Area2D2"]
+shape = SubResource("RectangleShape2D_xf641")
+
+[connection signal="body_entered" from="portal/Area2D2" to="portal" method="_on_area_2d_2_body_entered"]

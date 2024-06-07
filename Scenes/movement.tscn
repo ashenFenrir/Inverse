@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bciugl0lyb7fh"]
 
-[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/character_body_2d.tscn" id="2_4w0cu"]
-[ext_resource type="Script" path="res://Scenes/next level.gd" id="3_n2gsy"]
-[ext_resource type="PackedScene" uid="uid://cnpsegemtqomh" path="res://Scenes/door.tscn" id="3_xwq77"]
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/Objects/character_body_2d.tscn" id="2_4w0cu"]
+[ext_resource type="Script" path="res://Scripts/next level.gd" id="3_n2gsy"]
+[ext_resource type="PackedScene" uid="uid://cnpsegemtqomh" path="res://Scenes/Objects/door.tscn" id="3_xwq77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hq7bh"]
 size = Vector2(1340, 32)

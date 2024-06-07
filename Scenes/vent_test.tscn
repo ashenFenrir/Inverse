@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1flwt5nocdb1"]
 
-[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/character_body_2d.tscn" id="1_1o5xw"]
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/Objects/character_body_2d.tscn" id="1_1o5xw"]
 [ext_resource type="Script" path="res://Scripts/fan.gd" id="2_q2530"]
-[ext_resource type="PackedScene" uid="uid://dd0v2n7usjuh4" path="res://Scenes/box.tscn" id="3_uwmjm"]
+[ext_resource type="PackedScene" uid="uid://dd0v2n7usjuh4" path="res://Scenes/Objects/box.tscn" id="3_uwmjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l756k"]
 size = Vector2(597.041, 26.1499)
@@ -10,7 +10,7 @@ size = Vector2(597.041, 26.1499)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7fhc"]
 size = Vector2(176.398, 110.241)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 position = Vector2(592, 352)
 scale = Vector2(1.76872, 1.83557)
 

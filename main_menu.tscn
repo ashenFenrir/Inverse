@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://de8h4eobaiohk"]
+
+[ext_resource type="Script" path="res://start_game.gd" id="1_qw0nm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr8vr"]
+size = Vector2(136, 24)
+
+[sub_resource type="LabelSettings" id="LabelSettings_au6ya"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 248.0
+offset_right = 628.0
+offset_bottom = 271.0
+text = "Start a New Game"
+
+[node name="Area2D" type="Area2D" parent="Label"]
+script = ExtResource("1_qw0nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/Area2D"]
+position = Vector2(68, 12)
+shape = SubResource("RectangleShape2D_kr8vr")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 120.0
+offset_right = 585.0
+offset_bottom = 143.0
+text = "INVERSE"
+label_settings = SubResource("LabelSettings_au6ya")
+
+[connection signal="mouse_entered" from="Label/Area2D" to="Label/Area2D" method="_on_mouse_entered"]
