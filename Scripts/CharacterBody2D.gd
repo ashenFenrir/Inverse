@@ -10,7 +10,7 @@ var body_in_area: Node2D
 var isThere = false
 
 # This represents the player's inertia.
-var push_force = 20.0
+var push_force = 5.0
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and isThere:

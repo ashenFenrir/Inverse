@@ -1,71 +1,45 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnpsegemtqomh"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_ywd7q"]
+[ext_resource type="TileSet" uid="uid://cb1xi01vkpfo" path="res://Textures/TileSet.tres" id="2_lnymc"]
 
 [sub_resource type="Animation" id="Animation_kvhgl"]
 resource_name = "close"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/path = NodePath("TileMap:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(6, -49), Vector2(6, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-0.1, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -90), Vector2(0, -40)]
+"values": [Vector2(8, -82), Vector2(8, -18)]
 }
 
-[sub_resource type="Animation" id="Animation_pntdf"]
+[sub_resource type="Animation" id="Animation_shpg7"]
 resource_name = "open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/path = NodePath("TileMap:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(6, 1), Vector2(6, -49)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -40), Vector2(0, -90)]
+"values": [Vector2(8, -18), Vector2(8, -82)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jb1ru"]
 _data = {
 "close": SubResource("Animation_kvhgl"),
-"open": SubResource("Animation_pntdf")
+"open": SubResource("Animation_shpg7")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6b5u"]
-size = Vector2(12, 82)
-
-[node name="Door" type="StaticBody2D"]
+[node name="Door" type="Node2D"]
 position = Vector2(0, 2)
 script = ExtResource("1_ywd7q")
 
@@ -74,12 +48,8 @@ libraries = {
 "": SubResource("AnimationLibrary_jb1ru")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 1)
-shape = SubResource("RectangleShape2D_j6b5u")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_top = -40.0
-offset_right = 13.0
-offset_bottom = 42.0
-color = Color(0, 0, 0, 1)
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(8, -18)
+tile_set = ExtResource("2_lnymc")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 983040, 131076, 65535, 983040, 131077, 131071, 983040, 131077, 196607, 983040, 131078)

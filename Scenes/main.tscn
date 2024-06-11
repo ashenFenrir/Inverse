@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://u1c50wukhnt5"]
 
 [ext_resource type="TileSet" uid="uid://cb1xi01vkpfo" path="res://Textures/TileSet.tres" id="1_tgr5c"]
-[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/Objects/character.tscn" id="2_0h05g"]
+[ext_resource type="PackedScene" uid="uid://dotxdfc5w77os" path="res://Scenes/Objects/character_body_2d.tscn" id="2_0h05g"]
 [ext_resource type="PackedScene" uid="uid://bxoffou7ui4u3" path="res://Scenes/Objects/pressure_plate.tscn" id="3_eisn2"]
 [ext_resource type="PackedScene" uid="uid://dd0v2n7usjuh4" path="res://Scenes/Objects/box.tscn" id="5_3mxhv"]
 [ext_resource type="PackedScene" uid="uid://cnpsegemtqomh" path="res://Scenes/Objects/door.tscn" id="5_cga7m"]
@@ -30,8 +30,9 @@ affect = NodePath("../../Passive/Door")
 [node name="Passive" type="Node" parent="Objects"]
 
 [node name="Door" parent="Objects/Passive" instance=ExtResource("5_cga7m")]
-position = Vector2(122, -8)
+position = Vector2(128, 2)
 
 [node name="Box" parent="Objects/Passive" instance=ExtResource("5_3mxhv")]
 position = Vector2(48, 16)
+mass = 0.1
 physics_material_override = null
